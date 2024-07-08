@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>You find yourself in front a mythical shrimp...</h1>
+    {% if not praise %}
+    <h2>You must praise him right now.</h2>
+    <pre>             __
+     ____   / __
+  _ /    \_ |/
+ /  \    _\ \  
+ \_    /   ._\
+   \___\_____/
+    /// / /
+    --- \ \</pre>
+      <form action="/shrimp" id="shrimpform" method="get">
+    <input type="hidden" id="praise" name="praise" value="true">
+    <input type="hidden" id="floor" name="floor" value="2">
+  <input type="text" id="shrimpTalk" name="shrimpTalk" placeholder="Say something to him..."><br>
+    <button type="submit" form="shrimpform" value="Submit">Praise the shrimp</button>
+</form>
+    <a href="/elevator">Go back to the elevator in shame.</a>
+    {% else %}
+    {% if praise == 'praised' %}
+    <h2>The shrimp accepts your praise!</h2>
+    <h3>You hear a magical click on a floor above you...</h3>
+    <pre>             __
+     ____   / __
+  _ /    \_ |/
+ /  \    _\ \  
+ \_    /   . \
+   \___\____U/
+    /// / /
+    --- \ \</pre>
+       <form action="/shrimp" id="shrimpform" method="get">
+    <input type="hidden" id="praise" name="praise" value="true">
+    <input type="hidden" id="floor" name="floor" value="2">
+  <input type="text" id="shrimpTalk" name="shrimpTalk" placeholder="Say something to him..."><br>
+    <button type="submit" form="shrimpform" value="Submit">Praise the shrimp</button>
+</form>
+    <a href="/elevator">Go back to the elevator in glory.</a>
+    {% elif praise == 'unamused' %}
+    <h2>The shrimp frankly doesn't like what you're saying.</h2>
+    <pre>             __
+     ____   / __
+  _ /    \_ |/
+ /  \    _\ \  
+ \_    /   . \
+   \___\____^/
+    /// / /
+    --- \ \</pre>
+       <form action="/shrimp" id="shrimpform" method="get">
+    <input type="hidden" id="praise" name="praise" value="true">
+    <input type="hidden" id="floor" name="floor" value="2">
+  <input type="text" id="shrimpTalk" name="shrimpTalk" placeholder="Say something to him..."><br>
+    <button type="submit" form="shrimpform" value="Submit">Praise the shrimp</button>
+</form>
+    <a href="/elevator">Go back to the elevator confused.</a>
+    {% endif %}
+    {% endif %}
+    <br>
+    {% if not praise %}
+{% endif %}
+
+{% endblock %}

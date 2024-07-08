@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if passCode %}
+    {% if passCode == '412' %}
+    <h1>You hear a click and open the journal.</h1>
+    <h2>Day 1: Stuck in this elevator</h2>
+    <p>How do I get out?</p>
+    <h2>Day 13</h2>
+    <p>I have finally manage to praise the shrimp...turns out he really likes hearing the word 'rutabaga'</p>
+    <h2>Day 14</h2>
+    <p>I have finally managed to find an exit from this wretched elevator. I bid you all farewell and leave this journal for future people.</p>
+    {% else %}
+    <h1>You try entering the code {{passCode}} but nothing happens.</h1>
+    {% endif %}
+    {% else %}
+    <h1>You find yourself in front of a locked journal.</h1>
+    {% endif %}
+    <form action="/elevator">
+    <input type="hidden" id="floor" name="floor" value="3">
+
+  <label for="lname">Try to enter code</label><br>
+  <input type="number" id="passCode" name="passCode" value="999" min="0" max="999"><br><br>
+  <input type="submit" value="Submit">
+</form>
+  <a href="/elevator">Go back to the elevator.</a>
+{% endblock %}

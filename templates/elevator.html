@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if floorName %}
+    <h1>You find yourself on an elevator at floor {{floorName}}.</h1>
+    {% else %}
+    <h1>You find yourself in an idle elevator.</h1>
+    {% endif %}
+    {% for n in magic %}
+    <a href="elevator?floor={{n}}">Go to floor {{n}}</a>
+    {% if n % 3 == 0 %}
+    <br>
+    {% endif %}
+    {% endfor %}
+{% endblock %}
